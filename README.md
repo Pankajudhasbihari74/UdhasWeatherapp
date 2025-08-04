@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -11,3 +12,7 @@ Currently, two official plugins are available:
 # Udhas-App
 This app weather information provide.
 >>>>>>> 11275b89c31990886e788849e50f35dfc1e63742
+=======
+# Udhas - Weather - App
+Udhas Weather App built with React and Material UI
+>>>>>>> 1d76e8aa776acec95db3677f1ffcc14a7609e013

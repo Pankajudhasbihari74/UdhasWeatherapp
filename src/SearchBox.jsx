@@ -65,18 +65,19 @@ export default function SearchBox({ updateInfo }) {
 
   return (
     <Box
-      className="SearchBox"
+      className="search-box-glass"
       sx={{
-        backgroundColor: theme.palette.background.paper,
-        padding: 3,
-        borderRadius: 3,
-        boxShadow: 3,
+        backdropFilter: "blur(20px)",
+        backgroundColor: "rgba(255, 255, 255, 0.15)",
+        padding: { xs: 2, sm: 3 },
+        borderRadius: 4,
+        boxShadow: "0 8px 32px rgba(0, 0, 0, 0.2)",
         maxWidth: 500,
         margin: "auto",
-        mt: 4,
+        mt: 8,
       }}
     >
-      <form onSubmit={handleSubmit} className="formRow">
+      <form onSubmit={handleSubmit}>
         <Box
           sx={{
             display: "flex",
@@ -87,17 +88,20 @@ export default function SearchBox({ updateInfo }) {
         >
           <TextField
             id="city"
-            label="City Name"
-            variant="outlined"
+            label="Enter City"
+            variant="filled"
             required
             value={city}
             onChange={handleChange}
-            size="small"
             fullWidth
-            sx={{
-              backgroundColor:
-                theme.palette.mode === "dark" ? "#2c2c2c" : "#f0f0f0",
-              borderRadius: 1,
+            InputProps={{
+              style: {
+                backgroundColor: "rgba(255, 255, 255, 0.7)",
+                borderRadius: "12px",
+              },
+            }}
+            InputLabelProps={{
+              style: { fontWeight: "600", color: "#555" },
             }}
           />
           <Button
@@ -105,12 +109,18 @@ export default function SearchBox({ updateInfo }) {
             type="submit"
             startIcon={<SearchIcon />}
             sx={{
-              paddingX: 3,
-              paddingY: 1,
+              px: 4,
+              py: 1.5,
               fontWeight: "bold",
-              backgroundColor: theme.palette.primary.main,
+              fontSize: "1rem",
+              borderRadius: "12px",
+              background: "linear-gradient(45deg, #3f51b5, #2196f3)",
+              boxShadow: "0px 4px 20px rgba(33, 150, 243, 0.5)",
+              transition: "all 0.3s ease-in-out",
               "&:hover": {
-                backgroundColor: theme.palette.primary.dark,
+                background: "linear-gradient(45deg, #2196f3, #3f51b5)",
+                transform: "scale(1.05)",
+                boxShadow: "0px 6px 25px rgba(33, 150, 243, 0.7)",
               },
             }}
           >
@@ -121,11 +131,12 @@ export default function SearchBox({ updateInfo }) {
 
       {error && (
         <Typography
-          variant="body1"
+          variant="body2"
           sx={{
             mt: 3,
             color: theme.palette.error.main,
-            fontWeight: 800,
+            fontWeight: "bold",
+            textAlign: "center",
           }}
         >
           ⚠️ {error}

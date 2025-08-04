@@ -1,13 +1,68 @@
-.SearchBox {
-    text-align: center;
-    margin-top: 25px;
-}
-.cardContainer {
-    display: flex;
-    justify-content: center;
-    margin-top: 25px;
-}
-.error-message {
-    color: red;
+/* --- SearchBox styles --- */
 
+.SearchBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+}
+
+.formRow {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  max-width: 500px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+  
+}
+
+.textField {
+  flex: 1;
+}
+
+.SearchBox input {
+  color: inherit;
+}
+
+.SearchBox button {
+  transition: background-color 0.3s ease;
+  min-width: 100px;
+  font-weight: 600;
+}
+
+
+
+/* --- InfoBox styles --- */
+
+.InfoBox {
+  padding: 2rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100px;
+}
+
+/* --- Responsive adjustments --- */
+
+@media screen and (max-width: 768px) {
+  .formRow {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .InfoBox {
+    padding: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .SearchBox {
+    padding: 1rem;
+  }
+
+  .textField {
+    width: 100%;
+  }
 }

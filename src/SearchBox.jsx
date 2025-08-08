@@ -27,6 +27,12 @@ export default function SearchBox({ updateInfo }) {
 
       const json = await response.json();
 
+      const currentTime = json.dt;
+      const sunriseTime = json.sys.sunrise;
+      const sunsetTime = json.sys.sunset;
+
+      const isDayTime = currentTime >= sunriseTime && currentTime <= sunsetTime;
+
       return {
         city: city,
         temp: json.main.temp,
@@ -35,6 +41,11 @@ export default function SearchBox({ updateInfo }) {
         humidity: json.main.humidity,
         feelslike: json.main.feels_like,
         weather: json.weather[0].description,
+        dt: json.dt,                   // Current time (Unix)
+        timezone: json.timezone,       // Timezone offset in seconds
+        sunrise: json.sys.sunrise,     // Sunrise time (Unix)
+        sunset: json.sys.sunset,       // Sunset time (Unix)
+        dayOrNight: isDayTime ? "Day" : "Night"  // Day or Night Detection
       };
     } catch (err) {
       setError(err.message);
